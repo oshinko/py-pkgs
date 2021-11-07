@@ -1,6 +1,6 @@
-# pyprojects
+# PyProjects
 
-色々なパッケージのインストールパターンを網羅する。
+色々なプロジェクトのインストールパターンを網羅する。
 
 
 ## Install from archive
