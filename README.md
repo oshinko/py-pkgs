@@ -1,21 +1,39 @@
-# py-pkgs
+# pyprojects
 
-## install from archive
+色々なパッケージのインストールパターンを網羅する。
 
-tar.gz:
+
+## Install from archive
+
+Create tar.gz:
 
 ```sh
-git archive HEAD:pkg1 -o ./pkg1.tar.gz
+git archive HEAD:sub/project1 -o ./project1.tar.gz
 ```
 
-zip:
+If create zip:
 
 ```sh
-git archive HEAD:pkg1 -o ./pkg1.zip
+git archive HEAD:sub/project1 -o ./project1.zip
 ```
 
-install:
+Install:
 
 ```sh
-python -m pip install -U ./pkg1.tar.gz
+python -m pip install -U ./project1.tar.gz
+```
+
+
+## Install from Git over HTTP(S)
+
+Install project:
+
+```sh
+python -m pip install -U "project @ git+https://github.com/oshinko/pyprojects.git@main"
+```
+
+Install only specific subprojects:
+
+```sh
+python -m pip install -U "project1 @ git+https://github.com/oshinko/pyprojects.git@main#subdirectory=sub/project1"
 ```
