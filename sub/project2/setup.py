@@ -2,21 +2,42 @@ import pathlib
 
 import setuptools
 
-NAME = 'project2'
-PACKAGES = ['project', 'project2']
+ROOT_PACKAGES = ['project', 'project2']
 
 here = pathlib.Path(__file__).parent
-package_data = {x: [] for x in PACKAGES}
 
-for package in PACKAGES:
-    package_path = here / package.replace('.', '/')
+
+def PackagePath(package):
+    return pathlib.Path(package.replace('.', '/'))
+
+
+def scan_package(package):
+    packages = set()
+    package_path = PackagePath(package)
+    for path in package_path.glob('**/*'):
+        if path.is_file() and path.suffix == '.py':
+            parent_path = path.parent.relative_to(package_path.parent)
+            packages.add('.'.join(parent_path.parts))
+    return sorted(packages)
+
+
+packages = sorted(sum([scan_package(x) for x in ROOT_PACKAGES], start=[]))
+package_data = {x: [] for x in packages}
+
+for package in packages:
+    package_path = here / PackagePath(package)
     package_data_path = package_path / 'data'
     for path in package_data_path.glob('**/*'):
         if path.is_file():
             path = path.relative_to(package_path)
             package_data[package].append(str(path))
 
-about_script = (here / 'about.py').read_text(encoding='utf8')
+if len(ROOT_PACKAGES) == 1:
+    about_script_path = here / PackagePath(ROOT_PACKAGES[0])
+else:
+    about_script_path = here / 'about.py'
+
+about_script = about_script_path.read_text(encoding='utf8')
 about = {}
 exec(about_script, about)
 
@@ -32,7 +53,7 @@ setuptools.setup(
     author=about['author'],
     author_email=about['author_email'],
     url=about['url'],
-    packages=PACKAGES,
+    packages=packages,
     package_data=package_data,
     classifiers=[
         'Programming Language :: Python',
