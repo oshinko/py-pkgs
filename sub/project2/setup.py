@@ -33,11 +33,11 @@ for package in packages:
             package_data[package].append(str(path))
 
 if len(ROOT_PACKAGES) == 1:
-    about_script_path = here / PackagePath(ROOT_PACKAGES[0])
+    about_script_dir = here / PackagePath(ROOT_PACKAGES[0])
 else:
-    about_script_path = here / 'about.py'
+    about_script_dir = here
 
-about_script = about_script_path.read_text(encoding='utf8')
+about_script = (about_script_dir / 'about.py').read_text(encoding='utf8')
 about = {}
 exec(about_script, about)
 
