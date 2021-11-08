@@ -1,7 +1,9 @@
 import pathlib
 
-print('imported', __file__)
+me = pathlib.Path(__file__)
 
-greet_file = pathlib.Path(__file__).parent / 'data/greet.txt'
+print(me, 'Hello!')
 
-print(greet_file.read_text(encoding='utf8').strip())
+greet_file = me.parent / 'data/greet.txt'
+
+print(me, 'greet', greet_file.read_text(encoding='utf8').strip())

@@ -2,6 +2,13 @@
 
 色々なプロジェクトのインストールパターンを網羅する。
 
+最初に venv を作成して有効化しておくことを推奨する:
+
+```sh
+python3 -m venv ~/tmp/venv  # 一時的な環境
+. ~/tmp/venv/bin/activate
+```
+
 
 ## Install from archive
 
