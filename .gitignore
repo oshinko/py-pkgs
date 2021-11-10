@@ -1,3 +1,6 @@
+*.egg-info/
 *.tar.gz
 *.zip
-__pycache__
+__pycache__/
+build/
+dist/

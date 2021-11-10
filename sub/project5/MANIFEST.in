@@ -1,0 +1,4 @@
+include ./memo.txt
+exclude ./README.md
+recursive-include ./project *.txt
+recursive-exclude ./project/exclude_dir *
