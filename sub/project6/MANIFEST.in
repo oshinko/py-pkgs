@@ -1,2 +1,3 @@
-recursive-include ./project *.txt
-recursive-exclude ./project/exclude_dir *
+recursive-include ./package *.txt
+recursive-exclude ./package/exclude_dir *
+recursive-exclude ./package//include_dir/exclude_dir *
