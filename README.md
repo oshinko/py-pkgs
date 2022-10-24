@@ -5,17 +5,16 @@
 最初に venv を作成して有効化しておくことを推奨する:
 
 ```sh
-python3 -m venv ~/tmp/venv  # 一時的な環境
-. ~/tmp/venv/bin/activate
+python3 -m venv ./venv  # 一時的な環境
+. ./venv/bin/activate
 ```
-
 
 ## Install from sdist
 
 Create sdist:
 
 ```sh
-python ./setup.py sdist
+python -m build --sdist
 ```
 
 Install:
@@ -23,7 +22,6 @@ Install:
 ```sh
 python -m pip install ./dist/project-0.0.0.tar.gz
 ```
-
 
 ## Install from git-archive
 
@@ -44,7 +42,6 @@ Install:
 ```sh
 python -m pip install -U ./project1.tar.gz
 ```
-
 
 ## Install from Git over HTTP(S)
 
