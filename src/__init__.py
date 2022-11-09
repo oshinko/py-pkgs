@@ -1,21 +1,21 @@
 __version__ = '0.0.0'
 
 import importlib.metadata
-import pathlib
 
-me = pathlib.Path(__file__)
-distribution_name = me.parent.name
+distribution_name = None
+distribution_summary = None
+distribution_version = None
 
-print(me, 'Hello!')
-print(me, '__version__', __version__)
+packages = importlib.metadata.packages_distributions()
+distributions = set(packages.get(__name__, ()))
 
-version = __version__
-
-try:
+if len(distributions) == 1:
+    distribution_name, = distributions
     metadata = importlib.metadata.metadata(distribution_name)
-    version = metadata['version']
-    print(me, 'metadata', dict(metadata))
-except importlib.metadata.PackageNotFoundError:
-    pass
+    distribution_summary = metadata.get('summary')
+    distribution_version = metadata.get('version')
 
-print(me, 'version', version)
+print(f'{__name__}.__version__:', __version__)
+print(f'{__name__}.distribution_name:', distribution_name)
+print(f'{__name__}.distribution_summary:', distribution_summary)
+print(f'{__name__}.distribution_version:', distribution_version)

@@ -14,6 +14,7 @@ print('Command-line arguments:', args)
 
 if args.async_:
     import asyncio
+
     import aiohttp
 
     async def main():
