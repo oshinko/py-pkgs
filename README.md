@@ -1,6 +1,6 @@
 # PyProjects
 
-色々なプロジェクトのインストールパターンを網羅する。
+色々なプロジェクト (Distribution) のインストールパターンを網羅する。
 
 最初に venv を作成して有効化しておくことを推奨する:
 
@@ -28,13 +28,13 @@ python -m pip install ./dist/project-0.0.0.tar.gz
 Create tar.gz:
 
 ```sh
-git archive HEAD:sub/project1 -o ./project1.tar.gz
+git archive HEAD:contrib/project1 -o ./project1.tar.gz
 ```
 
 If create zip:
 
 ```sh
-git archive HEAD:sub/project1 -o ./project1.zip
+git archive HEAD:contrib/project1 -o ./project1.zip
 ```
 
 Install:
@@ -54,5 +54,5 @@ python -m pip install -U "project @ git+https://github.com/oshinko/pyprojects.gi
 Install only specific subprojects:
 
 ```sh
-python -m pip install -U "project1 @ git+https://github.com/oshinko/pyprojects.git@main#subdirectory=sub/project1"
+python -m pip install -U "project1 @ git+https://github.com/oshinko/pyprojects.git@main#subdirectory=contrib/project1"
 ```

@@ -3,9 +3,9 @@ import setuptools
 import private_requirements
 
 setuptools.setup(
-    name='project7a',
+    name='pyproject8a2',
     version='0.0.0',
-    packages=['package7a'],
+    packages=['package'],
     install_requires=private_requirements.get(),
     classifiers=[
         'License :: OSI Approved :: MIT License',

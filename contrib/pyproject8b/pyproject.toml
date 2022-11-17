@@ -3,14 +3,12 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "project7a"
+name = "pyproject8b"
 version = "0.0.0"
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy"
 ]
-dynamic = ["dependencies"]
-
-[tool.setuptools.dynamic]
-dependencies = { file = "local-private-requirements.txt" }
+dependencies = [
+]

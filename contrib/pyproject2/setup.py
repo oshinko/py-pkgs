@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name='project1',
+    name='pyproject2',
     version='0.0.0',
     py_modules=['package.module1'],
     classifiers=[
